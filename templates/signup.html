@@ -1,0 +1,16 @@
+{% extends 'gen.html' %}
+{% block content %}
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" id="username" name="uusername" placeholder="username" required>
+            <input type="email" id="email"name="uemail" placeholder="Email" required>
+            <input type="password" id="password" name="upassword" placeholder="password" required>
+            <button type="submit">Sign Up</button>
+            <div class="login">Already have an account? <a href="/login">Login</a></div>
+        </form>
+    </div>
+</body>
+{% endblock %}
