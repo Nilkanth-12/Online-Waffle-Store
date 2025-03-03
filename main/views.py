@@ -28,6 +28,10 @@ def signup(request):
         return redirect('login')
     return render(request, 'signup.html')
 
+def logout(request):
+    logout(request)
+    return redirect('homes')
+
 def products(request):
     return render(request, 'products.html')
 
