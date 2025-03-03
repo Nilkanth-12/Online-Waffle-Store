@@ -1,5 +1,10 @@
 {% extends 'gen.html' %}
 {% block content %}
-<h1>Welcome to The Sweet Crave Spot</h1>
-    
+{% for product in products %}
+    <h1>{{ product.name }}</h1>
+    <h1>{{ product.price }}</h1>
+    <h1>{{ product.description }}</h1>
+    <img src="#" alt="#">
+{% endfor %}
+
 {% endblock %}

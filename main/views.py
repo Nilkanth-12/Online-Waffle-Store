@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .models import Product
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-
-def homes(request):
-    return render(request, 'home.html')
 
 def login(request):
     if request.method == 'POST':
@@ -15,8 +13,8 @@ def login(request):
             login(request, users)
             return redirect('homes')
         else:
-            return redirect('login')
-    return render(request, 'home.html')
+            return redirect('homes')
+    return render(request, 'login.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -32,7 +30,11 @@ def logout(request):
     logout(request)
     return redirect('homes')
 
-def products(request):
-    return render(request, 'products.html')
+def homes(request):
+    all_products = Product.objects.all()
+    print(all_products)  
+    context = {'products': all_products}
+    return render(request, 'home.html', context)
+
 
 
